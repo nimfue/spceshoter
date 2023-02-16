@@ -120,7 +120,6 @@ namespace testgame
 
 					if (enemy.CheckCollision(player))
 						player.IsAlive = false;
-						return State.Menu;
 					enemy.Update(window);
 				}
 				else
@@ -148,7 +147,7 @@ namespace testgame
 
 
 					if (enemy.CheckCollision(player))
-						return State.Menu;
+						player.IsAlive = false;
 
 					enemy.Update(window);
 				}
@@ -198,6 +197,7 @@ namespace testgame
 		}
 		public static void RunDraw(SpriteBatch spriteBatch, GameWindow window)
 		{
+			background.Draw(spriteBatch);
 			string s = "x: " + player.X + "\nY: " + player.Y;
 			text.Print(s, spriteBatch, 0, 0);
 			player.Draw(spriteBatch);
