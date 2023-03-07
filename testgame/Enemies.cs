@@ -29,25 +29,4 @@ namespace testgame
 			}
 		}
 	}
-
-	class Laserbeam : Enemy
-	{
-		int beamTimer = 0;
-		public Laserbeam(Texture2D texture, float X, float Y, Texture2D laserbeamWarning) :
-			base(texture, X, Y, 0, 6f)
-		{}
-		public override void Update(GameWindow window)
-		{
-			vector += speed;
-			if (vector.Y > window.ClientBounds.Height - Height)
-			{
-				speed.Y = 0;
-			}
-			if (beamTimer == 180)
-			{
-				isAlive = false;
-			}
-			beamTimer ++;
-		}
-	}
 }

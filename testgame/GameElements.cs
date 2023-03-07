@@ -140,12 +140,11 @@ namespace testgame
 							b.IsAlive = false;
 							int rndX = random.Next(20, window.ClientBounds.Width - laserbeamTexture.Width + 20);
 							int Y = 0 - laserbeamTexture.Height;
-							Enemy laserbeam = new Laserbeam(laserbeamTexture, rndX, Y, laserbeamWarningTexture);
+							PhysicalObject laserbeamWarning = new LaserbeamWarning(laserbeamWarningTexture, rndX, 0);
+							Enemy laserbeam = new Laserbeam(laserbeamTexture, rndX, Y);
 							normal_enemies.Add(laserbeam);
 						}
 					}
-
-
 					if (enemy.CheckCollision(player))
 						player.IsAlive = false;
 
@@ -180,14 +179,7 @@ namespace testgame
 
 				}
 			}
-			int spawnLaserbeam = random.Next(1, 500);
-			if (spawnLaserbeam == 600)
-			{
-				int rndX = random.Next(20, window.ClientBounds.Width - laserbeamTexture.Width + 20);
-				int Y = 0 - laserbeamTexture.Height;
-				Enemy laserbeam = new Laserbeam(laserbeamTexture, rndX, Y, laserbeamWarningTexture);
-				normal_enemies.Add(laserbeam);
-			}
+			
 			if (!player.IsAlive)
 			{
 				Reset(window, content);
